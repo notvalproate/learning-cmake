@@ -1,12 +1,13 @@
 #include <iostream>
-#include "StringPrinter.hpp"
 #include "cprint.hpp"
+#include "Cat.hpp"
 
 int main() {
-    StringPrinter stdPrinter(std::cout);
-    stdPrinter.print("Hello, World!");
-
     cprint::StringPrinter cprintPrinter(std::cout);
     cprintPrinter.print("Hello, World!");
+
+    Cat myCat("Luna");
+    myCat.meow();
+
     return 0;
 }

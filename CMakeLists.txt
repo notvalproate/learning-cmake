@@ -8,11 +8,11 @@ add_subdirectory(cprint)
 
 set(SOURCES 
     src/main.cpp
-    src/StringPrinter.cpp
+    src/Cat.cpp
 )
 
 add_executable(CMakeApp ${SOURCES})
-target_link_libraries(CMakeApp PUBLIC cprint)
+target_link_libraries(CMakeApp PRIVATE cprint)
 
 target_include_directories(CMakeApp 
     PUBLIC
