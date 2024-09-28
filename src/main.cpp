@@ -4,6 +4,8 @@
 
 #include "zlib.h"
 
+#include "ScottishFold.hpp"
+
 int main() {
     cprint::StringPrinter cprintPrinter(std::cout);
     cprintPrinter.print("Hello, World!");
@@ -24,6 +26,10 @@ int main() {
     }
 
     delete compressed;
+
+    cats::ScottishFold myScottishFold("Bella");
+    myScottishFold.meow();
+    myScottishFold.speak();
 
     return 0;
 }
