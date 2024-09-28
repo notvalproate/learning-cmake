@@ -4,3 +4,13 @@ set(CPRINT_SOURCES
 
 add_library(cprint STATIC ${CPRINT_SOURCES})
 target_include_directories(cprint PUBLIC include)
+
+install(TARGETS cprint
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
+
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
+    DESTINATION include
+)

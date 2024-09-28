@@ -29,4 +29,4 @@ target_include_directories(CMakeApp
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${ZLIB_INCLUDE_DIRS}
-) 
+)
