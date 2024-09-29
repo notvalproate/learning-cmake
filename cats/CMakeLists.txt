@@ -7,6 +7,13 @@ add_library(cats SHARED ${CATS_SOURCES})
 add_library(CMakeApp::cats ALIAS cats)
 target_include_directories(cats PUBLIC include)
 
+target_compile_options(cats
+    PRIVATE
+        -Wall
+        -Wextra
+        -Wpedantic
+)
+
 install(TARGETS cats 
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib

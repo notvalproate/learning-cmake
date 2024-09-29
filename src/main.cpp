@@ -6,9 +6,22 @@
 
 #include "ScottishFold.hpp"
 
+#ifdef _SAY_HELLO
+    #define _HELLO "Hello, World!"
+#else
+    #define _HELLO "Goodbye, World!"
+#endif
+
+#ifdef _PLATFORM_WIN_32
+    #define _CURRENT_PLATFORM "Windows 32-bit"
+#else
+    #define _CURRENT_PLATFORM "Unknown platform"
+#endif
+
 int main() {
     cprint::StringPrinter cprintPrinter(std::cout);
-    cprintPrinter.print("Hello, World!");
+    cprintPrinter.print(_HELLO);
+    cprintPrinter.print(_CURRENT_PLATFORM);
 
     Cat myCat("Luna");
     myCat.meow();
@@ -25,7 +38,7 @@ int main() {
         std::cerr << "Compression failed.\n";
     }
 
-    delete compressed;
+    delete[] compressed;
 
     cats::ScottishFold myScottishFold("Bella");
     myScottishFold.meow();

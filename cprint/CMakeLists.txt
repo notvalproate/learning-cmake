@@ -5,6 +5,13 @@ set(CPRINT_SOURCES
 add_library(cprint STATIC ${CPRINT_SOURCES})
 target_include_directories(cprint PUBLIC include)
 
+target_compile_options(cprint
+    PRIVATE
+        -Wall
+        -Wextra
+        -Wpedantic
+)
+
 install(TARGETS cprint
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
