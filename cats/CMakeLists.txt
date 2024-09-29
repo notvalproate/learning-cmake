@@ -9,9 +9,7 @@ target_include_directories(cats PUBLIC include)
 
 target_compile_options(cats
     PRIVATE
-        -Wall
-        -Wextra
-        -Wpedantic
+        ${CXX_WARNING_FLAGS}
 )
 
 install(TARGETS cats 

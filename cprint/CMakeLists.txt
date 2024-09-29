@@ -7,9 +7,7 @@ target_include_directories(cprint PUBLIC include)
 
 target_compile_options(cprint
     PRIVATE
-        -Wall
-        -Wextra
-        -Wpedantic
+        ${CXX_WARNING_FLAGS}
 )
 
 install(TARGETS cprint

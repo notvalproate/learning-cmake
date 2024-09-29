@@ -4,6 +4,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_HELLO_WORLD")
 
+if(MSVC)
+    set(CXX_WARNING_FLAGS /W4)
+    set(CXX_ERROR_WARNING /WX)
+else()
+    set(CXX_WARNING_FLAGS -Wall -Wextra -Wpedantic)
+    set(CXX_ERROR_WARNING -Werror)
+endif()
+
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     message("Setting build type to 'Debug' as none was specified.")
     set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build." FORCE)
@@ -39,10 +47,8 @@ target_include_directories(CMakeApp
 
 target_compile_options(CMakeApp 
     PRIVATE
-        -Wall
-        -Wextra
-        -Wpedantic
-        -Werror
+        ${CXX_WARNING_FLAGS}
+        ${CXX_ERROR_WARNING}
 )
 
 if(WIN32)
