@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_HELLO_WORLD")
 
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     message("Setting build type to 'Debug' as none was specified.")
@@ -42,11 +43,6 @@ target_compile_options(CMakeApp
         -Wextra
         -Wpedantic
         -Werror
-)
-
-target_compile_definitions(CMakeApp 
-    PRIVATE
-        _SAY_HELLO
 )
 
 if(WIN32)
