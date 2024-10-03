@@ -18,6 +18,8 @@
     #define _CURRENT_PLATFORM "Unknown platform"
 #endif
 
+#include "vmath/Vector.hpp"
+
 int main() {
     cprint::StringPrinter cprintPrinter(std::cout);
     cprintPrinter.print(_HELLO);
@@ -43,6 +45,12 @@ int main() {
     cats::ScottishFold myScottishFold("Bella");
     myScottishFold.meow();
     myScottishFold.speak();
+
+    Vector v1(1.0f, 2.0f, 3.0f);
+    Vector v2(4.0f, 5.0f, 6.0f);
+    Vector v3 = v1 + v2;
+
+    std::cout << v3 << std::endl;
 
     return 0;
 }

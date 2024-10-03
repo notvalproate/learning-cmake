@@ -22,6 +22,7 @@ project(CMakeApp VERSION 1.0)
 
 add_subdirectory(cprint)
 add_subdirectory(cats)
+add_subdirectory(vmath)
 
 find_package(ZLIB REQUIRED)
 
@@ -36,6 +37,7 @@ target_link_libraries(CMakeApp
     PRIVATE
         cprint
         CMakeApp::cats
+        CMakeApp::vmath
         ZLIB::ZLIB
 )
 
