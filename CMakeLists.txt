@@ -57,6 +57,9 @@ if(WIN32)
         PRIVATE
             _PLATFORM_WIN_32
     )
+    if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+        set(CMAKE_INSTALL_PREFIX "C:/Program Files/CMakeApp" CACHE PATH "Set install prefix" FORCE)
+    endif()
 endif()
 
 add_custom_command(TARGET CMakeApp POST_BUILD
