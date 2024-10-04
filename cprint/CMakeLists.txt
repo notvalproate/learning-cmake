@@ -19,3 +19,6 @@ install(TARGETS cprint
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
     DESTINATION include
 )
+
+include(cppcheck_analysis)
+add_to_cppcheck(cprint CPRINT_SOURCES)

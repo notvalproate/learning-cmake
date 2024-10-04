@@ -72,7 +72,7 @@ add_custom_command(TARGET CMakeApp POST_BUILD
     COMMAND_EXPAND_LISTS
 )
 
-include(analysis)
+include(cppcheck_analysis)
 add_to_cppcheck(CMakeApp SOURCES)
 
 if(CppCheck_FOUND)
