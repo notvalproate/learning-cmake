@@ -66,5 +66,3 @@ add_custom_command(TARGET CMakeApp POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:CMakeApp> $<TARGET_FILE_DIR:CMakeApp>
     COMMAND_EXPAND_LISTS
 )
-
-message("List of compile features: ${CMAKE_CXX_COMPILE_FEATURES}")
