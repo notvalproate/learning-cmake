@@ -5,6 +5,7 @@
 #include "zlib.h"
 
 #include "ScottishFold.hpp"
+#include "Siamese.hpp"
 
 #ifdef _SAY_HELLO
     #define _HELLO "Hello, World!"

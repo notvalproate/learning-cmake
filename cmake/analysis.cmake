@@ -1,9 +1,9 @@
-if(NOT CPPCHECK_FOUND)
+if(NOT CppCheck_FOUND)
     find_package(CppCheck)
 endif()
 
 macro(add_to_cppcheck _target _sources)
-    if(CPPCHECK_FOUND)
+    if(CppCheck_FOUND)
         get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
 
         foreach(dir ${dirs})

@@ -20,6 +20,11 @@ endif()
 
 project(CMakeApp VERSION 1.0)
 
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
+
+find_package(CppCheck)
+set(ALL_ANALYSIS_TARGETS)
+
 add_subdirectory(cprint)
 add_subdirectory(cats)
 add_subdirectory(vmath)
@@ -66,3 +71,13 @@ add_custom_command(TARGET CMakeApp POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:CMakeApp> $<TARGET_FILE_DIR:CMakeApp>
     COMMAND_EXPAND_LISTS
 )
+
+include(analysis)
+add_to_cppcheck(CMakeApp SOURCES)
+
+if(CppCheck_FOUND)
+    add_custom_target(analysis)
+    add_dependencies(analysis ${ALL_ANALYSIS_TARGETS})
+    set_target_properties(analysis PROPERTIES EXCLUDE_FROM_ALL TRUE)
+    message("Added cppcheck target for analysis: ${ALL_ANALYSIS_TARGETS}")
+endif()

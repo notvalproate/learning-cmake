@@ -6,7 +6,7 @@ set(CPPCHECK_ARG "${CPPCHECK_THREADS}" CACHE STRING "Additional arguments to pas
 include(FindPackageHandleStandardArgs)
 
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(
-    CPPCHECK
+    CppCheck
     DEFAULT_MSG
     CPPCHECK_BIN
     CPPCHECK_THREADS

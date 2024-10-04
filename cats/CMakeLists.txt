@@ -1,6 +1,7 @@
 set(CATS_SOURCES
     src/Cats.cpp
     src/ScottishFold.cpp
+    src/Siamese.cpp
 )
 
 add_library(cats SHARED ${CATS_SOURCES})
