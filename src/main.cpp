@@ -19,11 +19,13 @@
 #endif
 
 #include "vmath/Vector.hpp"
+#include "vmath/ver.hpp"
 
 int main() {
     cprint::StringPrinter cprintPrinter(std::cout);
     cprintPrinter.print(_HELLO);
     cprintPrinter.print(_CURRENT_PLATFORM);
+    cprintPrinter.print(vmath_version);
 
     Cat myCat("Luna");
     myCat.meow();
