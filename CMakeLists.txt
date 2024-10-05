@@ -22,14 +22,15 @@ project(CMakeApp VERSION 1.0)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
+find_package(Catch2 REQUIRED)
+find_package(ZLIB REQUIRED)
 find_package(CppCheck)
+
 set(ALL_ANALYSIS_TARGETS)
 
 add_subdirectory(cprint)
 add_subdirectory(cats)
 add_subdirectory(vmath)
-
-find_package(ZLIB REQUIRED)
 
 set(SOURCES
     src/main.cpp
@@ -81,3 +82,18 @@ if(CppCheck_FOUND)
     set_target_properties(analysis PROPERTIES EXCLUDE_FROM_ALL TRUE)
     message("Added cppcheck target for analysis: ${ALL_ANALYSIS_TARGETS}")
 endif()
+
+# Unit Testing
+
+enable_testing()
+
+add_executable(unit_tests 
+    test/test_cat.cpp
+)
+
+target_link_libraries(unit_tests 
+    PRIVATE
+        CMakeApp::cats
+)
+
+add_test(test_all unit_tests)
