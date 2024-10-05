@@ -93,7 +93,6 @@ include(catch2_testing)
 
 add_to_catch2(test_cats 
     CMakeApp::cats
-    CMakeApp::vmath
 )
 
 add_to_catch2(test_fibbo)
