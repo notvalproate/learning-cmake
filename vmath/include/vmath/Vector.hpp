@@ -1,3 +1,5 @@
+#include <ostream>
+
 class Vector {
 public:
     constexpr explicit Vector() noexcept = default;
