@@ -11,7 +11,10 @@ macro(add_to_cppcheck _target _sources)
         endforeach()
 
         list(APPEND ALL_ANALYSIS_TARGETS "${_target}_analysis")
-        set(ALL_ANALYSIS_TARGETS ${ALL_ANALYSIS_TARGETS} PARENT_SCOPE)
+
+        if(NOT CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+            set(ALL_ANALYSIS_TARGETS ${ALL_ANALYSIS_TARGETS} PARENT_SCOPE)
+        endif()
 
         separate_arguments(tmp_args UNIX_COMMAND ${CPPCHECK_ARG})
 
