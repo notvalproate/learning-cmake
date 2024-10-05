@@ -73,6 +73,8 @@ add_custom_command(TARGET CMakeApp POST_BUILD
     COMMAND_EXPAND_LISTS
 )
 
+# CppCheck Analysis
+
 include(cppcheck_analysis)
 add_to_cppcheck(CMakeApp SOURCES)
 
@@ -87,13 +89,9 @@ endif()
 
 enable_testing()
 
-add_executable(unit_tests 
-    test/test_cat.cpp
-)
+include(catch2_testing)
 
-target_link_libraries(unit_tests 
-    PRIVATE
-        CMakeApp::cats
+add_to_catch2(test_cats 
+    CMakeApp::cats
+    CMakeApp::vmath
 )
-
-add_test(test_all unit_tests)
